@@ -4,5 +4,9 @@
     box-sizing: border-box;
 }
 #homePage{
+    display: none;
+    align-content: center;
+}
+#mainPage{
     display: "flex";
 }
