@@ -43,22 +43,51 @@
       </section>
 
       <!-- Game Page -->
-      <section id="mainPage" class="container py-5 text-white">
-        <main>
-          <div id="" class="text-center fs-3"><p>Type this word</p></div>
-          <div id="word" class="text-center fs-1 fw-semibold"><h1>word</h1></div>
-          <div id="progressTable" class="border-top d-flex text-center justify-content-center align-content-center gap-5 w-50">
-            <div>
-              <div>Time</div>
-              <div>0</div>
-            </div>
-            <div>
-              <div>score</div>
-              <div>0</div>
+
+      <section id="mainPage" class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="bg-dark text-white">
+              <div class="card-body text-center p-5">
+                <h1 class="display-5 fw-bold text-light">Start Typing</h1>
+
+                <p class="text-secondary fs-5">
+                  Type the word before the timer runs out!
+                </p>
+
+                <!-- Current Word -->
+                <h1
+                  id="current-word"
+                  class="display-4 fw-bold text-warning mb-4"
+                >
+                  Programming
+                </h1>
+
+                <!-- Timer & Score -->
+                <div class="d-flex justify-content-evenly my-4">
+                  <div class="p-2 ">
+                    <h6>Time</h6>
+                    <h2 id="time">10</h2>
+                  </div>
+
+                  <div class="p-2">
+                    <h6>Score</h6>
+                    <h2 id="score">0</h2>
+                  </div>
+                </div>
+
+                <!-- Input -->
+                <input
+                  type="text"
+                  id="word-input"
+                  class="form-control form-control-lg text-center mb-3"
+                  placeholder="Type the word here..."
+                  autocomplete="off"
+                />
+              </div>
             </div>
           </div>
-          <div></div>
-        </main>
+        </div>
       </section>
     </main>
 
