@@ -4,9 +4,11 @@
     box-sizing: border-box;
 }
 #homePage{
+    /* display: "flex"; */
     display: none;
     align-content: center;
 }
 #mainPage{
-    display: "flex";
+    display: "block";
+    /* display: none; */
 }

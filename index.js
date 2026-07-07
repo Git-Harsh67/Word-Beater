@@ -191,7 +191,7 @@ const words = [
 startbtn.addEventListener("click", () => {
     console.log("clicked")
     homePage.style.display = "none"
-    mainPage.style.display = "flex"
+    mainPage.style.display = "block"
 })
 
 function generateRandomWord() {
@@ -201,14 +201,17 @@ function generateRandomWord() {
     return randomWord;
 }
 currentWord.textContent = generateRandomWord()
-console.log(currentWord.innerHTML)
 
-text.addEventListener("click" , ()=>{
+text.addEventListener("click", () => {
+    let countDown
+    clearInterval(countDown)
     let count = 15
+    timer.textContent = count
 
-    const countDown = setInterval(() => {
+    countDown = setInterval(() => {
         count--
         timer.textContent = count
+
         if (count === 0) {
             clearInterval(countDown)
         }
@@ -219,7 +222,7 @@ text.addEventListener("input", () => {
     const word = currentWord.innerHTML
 
     if (word === text.value) {
-        
+
         if (word.length <= 5) {
             score.textContent = Number(score.innerHTML) + 50
         } else if (word.length > 8) {
@@ -237,6 +240,9 @@ text.addEventListener("input", () => {
 
 
 })
+
+
+
 
 
 
