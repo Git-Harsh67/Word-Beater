@@ -5,6 +5,11 @@ const currentWord = document.querySelector("#current-word")
 const text = document.querySelector("#word-input")
 const score = document.querySelector("#score")
 const timer = document.querySelector("#time")
+const gameOver = document.querySelector("#gameOverPage")
+const totalScore = document.querySelector("#final-score")
+const retryBtn = document.querySelector("#retryBtn")
+const homeBtn = document.querySelector("#homeBtn")
+
 
 const words = [
     "apple",
@@ -188,10 +193,31 @@ const words = [
     "breakfast"
 ];
 
+let time
+let countDown
+
 startbtn.addEventListener("click", () => {
-    console.log("clicked")
+
     homePage.style.display = "none"
     mainPage.style.display = "block"
+
+    text.focus()
+
+    time = 20
+    timer.textContent = time
+
+    countDown = setInterval(() => {
+        time--
+        timer.textContent = time
+        if (time < 0) {
+            clearInterval(countDown)
+            mainPage.style.display = "none"
+            gameOver.style.display = "block"
+
+            totalScore.textContent = score.innerHTML
+        }
+    }, 1000);
+
 })
 
 function generateRandomWord() {
@@ -201,22 +227,6 @@ function generateRandomWord() {
     return randomWord;
 }
 currentWord.textContent = generateRandomWord()
-
-text.addEventListener("click", () => {
-    let countDown
-    clearInterval(countDown)
-    let count = 15
-    timer.textContent = count
-
-    countDown = setInterval(() => {
-        count--
-        timer.textContent = count
-
-        if (count === 0) {
-            clearInterval(countDown)
-        }
-    }, 1000);
-})
 
 text.addEventListener("input", () => {
     const word = currentWord.innerHTML
@@ -234,13 +244,58 @@ text.addEventListener("input", () => {
         currentWord.textContent = generateRandomWord()
 
         text.value = ""
+        clearInterval(countDown)
+        time = 20
+        timer.textContent = time
 
+        countDown = setInterval(() => {
+            time--
+            timer.textContent = time
+            if (time < 0) {
+                clearInterval(countDown)
+                mainPage.style.display = "none"
+                gameOver.style.display = "block"
+
+                totalScore.textContent = score.innerHTML
+            }
+        }, 1000)
 
     }
 
+})
+
+homeBtn.addEventListener("click", () => {
+    homePage.style.display = " block"
+    gameOver.style.display = "none"
+    score.textContent = "0"
+    currentWord.textContent = generateRandomWord()
 
 })
 
+retryBtn.addEventListener("click", () => {
+    mainPage.style.display = "block"
+    gameOver.style.display = "none"
+    currentWord.textContent = generateRandomWord()
+    text.focus()
+
+    score.textContent = "0"
+    clearInterval(countDown)
+    time = 20
+    timer.textContent = time
+
+    countDown = setInterval(() => {
+        time--
+        timer.textContent = time
+        if (time < 0) {
+            clearInterval(countDown)
+            mainPage.style.display = "none"
+            gameOver.style.display = "block"
+
+            totalScore.textContent = score.innerHTML
+        }
+    }, 1000)
+
+})
 
 
 

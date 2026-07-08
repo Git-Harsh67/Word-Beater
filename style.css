@@ -1,14 +1,15 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-#homePage{
-    /* display: "flex"; */
-    display: none;
-    align-content: center;
+#homePage {
+  display: "flex";
+  align-content: center;
 }
-#mainPage{
-    display: "block";
-    /* display: none; */
+#mainPage {
+  display: none;
+}
+#gameOverPage {
+  display: none;
 }
