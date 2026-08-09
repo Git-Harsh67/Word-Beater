@@ -241,12 +241,36 @@ text.addEventListener("input", () => {
             score.textContent = Number(score.innerHTML) + 100
         }
 
+
+        if (Number(score.innerHTML) >= 500 && Number(score.innerHTML) <= 999) {
+            time = 18
+        }
+        else if (Number(score.innerHTML) >= 1000 && Number(score.innerHTML) <= 1499) {
+            time = 15
+        }
+        else if (Number(score.innerHTML) >= 1500 && Number(score.innerHTML) <= 1999) {
+            time = 12
+        }
+        else if (Number(score.innerHTML) >= 2000 && Number(score.innerHTML) <= 2699) {
+            time = 10
+        } else if (Number(score.innerHTML) >= 2700 && Number(score.innerHTML) <= 3399) {
+            time = 8
+        }
+        else if (Number(score.innerHTML) >= 3400) {
+            time = 6
+        }
+        else {
+            time = 20
+        }
+
+
         currentWord.textContent = generateRandomWord()
 
-        text.value = ""
         clearInterval(countDown)
-        time = 20
+        text.value = ""
         timer.textContent = time
+
+
 
         countDown = setInterval(() => {
             time--
@@ -263,6 +287,9 @@ text.addEventListener("input", () => {
     }
 
 })
+
+
+
 
 homeBtn.addEventListener("click", () => {
     homePage.style.display = " block"
